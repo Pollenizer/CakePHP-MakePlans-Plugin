@@ -7,7 +7,10 @@ http://www.makeplans.net/api/
 INSTALLATION
 ------------
 
-Install the plugin in the app/Plugin/MakePlans directory
+Install the plugin in the app/Plugin/MakePlans directory and insert the
+following line into bootstrap.php
+
+    CakePlugin::load('MakePlans');
 
 CONFIGURATION
 -------------
@@ -55,21 +58,21 @@ Update a resource:
             'backend' => true,
             'body' => array (
                 'resource' => array (
-                    'open_0' => 19:30
-                    'close_0' => 23:00
-                    'open_1' => null
-                    'close_1' => null
-                    'open_2' => null
-                    'close_2' => null
-                    'open_3' => 09:00
-                    'close_3' => 10:00
-                    'open_4' => null
-                    'close_4' => null
-                    'open_5' => null
-                    'close_5' => null
-                    'open_6' => null
-                    'close_6' => null
-                    'id' => 43
+                    'open_0' => '19:30',
+                    'close_0' => '23:00',
+                    'open_1' => null,
+                    'close_1' => null,
+                    'open_2' => null,
+                    'close_2' => null,
+                    'open_3' => '09:00',
+                    'close_3' => '10:00',
+                    'open_4' => null,
+                    'close_4' => null,
+                    'open_5' => null,
+                    'close_5' => null,
+                    'open_6' => null,
+                    'close_6' => null,
+                    'id' => 43,
                 )
             ),
         )
