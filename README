@@ -1,0 +1,77 @@
+MakePlans Plugin
+
+A CakePHP Plugin for interfacing with the MakePlans Web Service via a Datasource
+
+http://www.makeplans.net/api/
+
+INSTALLATION
+------------
+
+Install the plugin in the app/Plugin/MakePlans directory
+
+CONFIGURATION
+-------------
+
+1. Add the following to app/Config/database.php:
+
+    public $makePlans = array (
+        'datasource' => 'MakePlans.MakePlansSource',
+        'apikey' => 'APIKEY',
+        'account' => 'ACCOUNT',
+    );
+
+2. Add the following to your model:
+
+    public $useDbConfig = 'makePlans';
+    public $useTable = false;
+
+USAGE
+-----
+
+The following example shows how to retrieve a MakePlans resource:
+
+    $data = $this->Model->resource(array(
+            'id' => 43,
+            'backend' => true,
+        )
+    );
+
+Get available bookings slots:
+
+    $data = $this->Model->bookings(array(
+            'query' => array (
+                'service' => 28,
+                'selected_resources' => 84,
+                'from' => '2012-02-20',
+            )
+        )
+    );
+
+Update a resource:
+
+    $data = $this->Model->resource(array(
+            'method' => 'PUT',
+            'id' => 43,
+            'backend' => true,
+            'body' => array (
+                'resource' => array (
+                    'open_0' => 19:30
+                    'close_0' => 23:00
+                    'open_1' => null
+                    'close_1' => null
+                    'open_2' => null
+                    'close_2' => null
+                    'open_3' => 09:00
+                    'close_3' => 10:00
+                    'open_4' => null
+                    'close_4' => null
+                    'open_5' => null
+                    'close_5' => null
+                    'open_6' => null
+                    'close_6' => null
+                    'id' => 43
+                )
+            ),
+        )
+    );
+
